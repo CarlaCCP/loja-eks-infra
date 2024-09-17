@@ -128,5 +128,5 @@ resource "aws_api_gateway_integration" "proxy" {
   }
 
   connection_type = "VPC_LINK"
-  connection_id   = aws_api_gateway_vpc_link.main.id
+  connection_id   = aws_api_gateway_vpc_link.main.id 
 }
