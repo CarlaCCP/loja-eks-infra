@@ -77,18 +77,19 @@ resource "aws_eks_node_group" "techNode" {
 
 }
 
-resource “aws_api_gateway_vpc_link” “main” {
- name = “tech_vpclink”
- description = “Foobar Gateway VPC Link. Managed by Terraform.”
- target_arns = [var.load_balancer_arn]
+resource "aws_api_gateway_vpc_link" "main" {
+  name        = "tech_vpclink"
+  description = "Foobar Gateway VPC Link. Managed by Terraform."
+  target_arns = [var.load_balancer_arn]
 }
 
-resource “aws_api_gateway_rest_api” “main” {
- name = "tech_gateway"
- description = “Foobar Gateway used for EKS. Managed by Terraform.”
- endpoint_configuration {
-   types = ["REGIONAL"]
- }
+resource "aws_api_gateway_rest_api" "main" {
+  name           = "tech_gateway"
+  description    = "Foobar Gateway VPC Link. Managed by Terraform."
+
+  endpoint_configuration {
+    types = ["REGIONAL"]
+  }
 }
 
 resource "aws_api_gateway_resource" "proxy" {
