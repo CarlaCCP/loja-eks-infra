@@ -33,10 +33,10 @@ resource "aws_eks_cluster" "tech" {
 
   vpc_config {
     subnet_ids = [
-      aws_subnet.tech_public_subnet_1.id,
-      aws_subnet.tech_public_subnet_2.id,
-      aws_subnet.tech_private_subnet_1.id,
-      aws_subnet.tech_private_subnet_2.id
+      aws_subnet.private-us-east-1a.id,
+      aws_subnet.private-us-east-1b.id,
+      aws_subnet.public-us-east-1a.id,
+      aws_subnet.public-us-east-1b.id
     ]
   }
 
@@ -56,10 +56,10 @@ resource "aws_eks_node_group" "techNode" {
   node_group_name = "techNode"
   node_role_arn   = "arn:aws:iam::019248244455:role/LabRole"
   subnet_ids      = [
-      aws_subnet.tech_public_subnet_1.id,
-      aws_subnet.tech_public_subnet_2.id,
-      aws_subnet.tech_private_subnet_1.id,
-      aws_subnet.tech_private_subnet_2.id
+      aws_subnet.private-us-east-1a.id,
+      aws_subnet.private-us-east-1b.id,
+      aws_subnet.public-us-east-1a.id,
+      aws_subnet.public-us-east-1b.id
     ]
   instance_types   = ["t3.small"] 
 
