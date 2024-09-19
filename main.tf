@@ -33,11 +33,11 @@ resource "aws_eks_cluster" "tech" {
 
   vpc_config {
     subnet_ids = [
-        "subnet-0f001a61c2a84a217", 
-        "subnet-0e13ff3b8ed24e2b9",
-        "subnet-09ed108424f3deb06",
-        "subnet-07e12442cb4f70b7b",
-        "subnet-059aeadf98cf87078"
+        "subnet-057bd241945828c79", 
+        "subnet-067058a4f0e40dbdd",
+        "subnet-04a1a10cbf10df2bb",
+        "subnet-023821714e99975f0",
+        "subnet-01d3059e23aa6d6d7"
         ]
   }
 
@@ -57,11 +57,11 @@ resource "aws_eks_node_group" "techNode" {
   node_group_name = "techNode"
   node_role_arn   = "arn:aws:iam::019248244455:role/LabRole"
   subnet_ids      = [
-        "subnet-0f001a61c2a84a217", 
-        "subnet-0e13ff3b8ed24e2b9",
-        "subnet-09ed108424f3deb06",
-        "subnet-07e12442cb4f70b7b",
-        "subnet-059aeadf98cf87078"
+        "subnet-057bd241945828c79", 
+        "subnet-067058a4f0e40dbdd",
+        "subnet-04a1a10cbf10df2bb",
+        "subnet-023821714e99975f0",
+        "subnet-01d3059e23aa6d6d7"
         ]
   instance_types   = ["t3.small"] 
 
