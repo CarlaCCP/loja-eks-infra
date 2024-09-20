@@ -13,17 +13,21 @@ terraform {
     }
   }
   required_version = ">= 1.1.0"
-    cloud {
-    organization = "teste-carla"
+  #   cloud {
+  #   organization = "teste-carla"
 
-    workspaces {
-      name = "novo-workspace"
-    }
-  }
+  #   workspaces {
+  #     name = "novo-workspace"
+  #   }
+  # }
 }
 
 provider "aws" {
   region = "us-east-1"
+}
+
+data "aws_subnet" "tech_subnetes" {
+  availability_zone = ""
 }
 
 
@@ -33,11 +37,11 @@ resource "aws_eks_cluster" "tech" {
 
   vpc_config {
     subnet_ids = [
-      "subnet-0f4ce9ecc660cd3f2",
-      "subnet-07d190e14405105b0",
-      "subnet-0999539928723d781",
-      "subnet-0c6712171ff29cfd3",
-      "subnet-0e5d6405ea49d3b76"
+      "subnet-0b9190e6af5d60aa2",
+      "subnet-0b8ce7688687ab745",
+      "subnet-0fe8bd1b60c41c998",
+      "subnet-00251cca3661eab7c",
+      "subnet-0ce0b9c2470f397e4"
     ]
   }
 
@@ -57,11 +61,11 @@ resource "aws_eks_node_group" "techNode" {
   node_group_name = "techNode"
   node_role_arn   = "arn:aws:iam::019248244455:role/LabRole"
   subnet_ids      = [
-      "subnet-0f4ce9ecc660cd3f2",
-      "subnet-07d190e14405105b0",
-      "subnet-0999539928723d781",
-      "subnet-0c6712171ff29cfd3",
-      "subnet-0e5d6405ea49d3b76"
+      "subnet-0b9190e6af5d60aa2",
+      "subnet-0b8ce7688687ab745",
+      "subnet-0fe8bd1b60c41c998",
+      "subnet-00251cca3661eab7c",
+      "subnet-0ce0b9c2470f397e4"
     ]
   instance_types   = ["t3.small"] 
 
