@@ -41,10 +41,7 @@ provider "aws" {
 
 data "aws_subnets" "tech_subnetes" {}
 data "aws_subnet" "tech_subnet" {
-  filter {
-    name   = "availability-zone"
-    values = ["us-east-1"]
-  }
+  availability_zone = "us-east-1"
 }
 
 output subnets_output {
