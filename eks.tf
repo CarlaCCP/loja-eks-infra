@@ -45,8 +45,7 @@ resource "aws_eks_cluster" "tech" {
   role_arn = "arn:aws:iam::019248244455:role/LabRole"
 
   vpc_config {
-    for_each   = toset(data.aws_subnets.tech_subnetes.ids) 
-    subnet_ids = [each.value]
+    subnet_ids = data.aws_subnets.tech_subnetes.ids
   }
 
 }
