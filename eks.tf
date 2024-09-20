@@ -63,8 +63,7 @@ resource "aws_eks_node_group" "techNode" {
   cluster_name    = aws_eks_cluster.tech.name
   node_group_name = "techNode"
   node_role_arn   = "arn:aws:iam::019248244455:role/LabRole"
-  for_each   = toset(data.aws_subnets.tech_subnetes.ids) 
-  subnet_ids = [each.value]
+  subnet_ids      = data.aws_subnets.tech_subnetes.ids
   # subnet_ids      = [
   #     "subnet-0b9190e6af5d60aa2",
   #     "subnet-0b8ce7688687ab745",
