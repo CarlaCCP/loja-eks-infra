@@ -27,14 +27,15 @@ provider "aws" {
 }
 
 data "aws_subnets" "tech_subnetes" {
-  filter = {
-    name = "availability_zone"
-    values = ["us-east-1e"]
+  filter {
+    name   = "vpc-id"
+    values = ["subnet-0b9190e6af5d60aa2"]
   }
 }
 
 output subnets_output {
-  value = data.aws_subnets.tech_subnetes.ids
+  # value = data.aws_subnets.tech_subnetes.ids
+  value = [for id in data.aws_subnets.tech_subnetes : id.id]
 }
 
 
