@@ -26,9 +26,9 @@ provider "aws" {
   region = "us-east-1"
 }
 
-data "aws_subnet" "tech_subnetes" {
-  availability_zone = ""
-}
+# data "aws_subnet" "tech_subnetes" {
+#   availability_zone = ""
+# }
 
 
 resource "aws_eks_cluster" "tech" {
