@@ -28,8 +28,8 @@ provider "aws" {
 
 data "aws_subnets" "tech_subnetes" {
   filter {
-    name   = "vpc-id"
-    values = ["subnet-0b9190e6af5d60aa2"]
+    name   = "availability-zone"
+    values = ["us-east-1e"]
   }
 }
 
