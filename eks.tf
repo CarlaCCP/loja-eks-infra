@@ -30,7 +30,7 @@ data "aws_subnets" "tech_subnetes" {
   # filter = "availability-zone!=us-east-1e"
   filter {
     name   = "availability-zone"
-    values != ["us-east-1e"]
+    values = ["!=us-east-1e"]
   }
 }
 
