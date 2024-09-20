@@ -49,7 +49,7 @@ output subnets_output {
 
 output subnet_output {
   # value = data.aws_subnets.tech_subnetes.ids
-  value = data.aws_subnets.tech_subnet
+  value = data.aws_subnet.tech_subnet
 }
 
 # resource "aws_eks_cluster" "tech" {
