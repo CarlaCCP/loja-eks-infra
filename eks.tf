@@ -36,7 +36,7 @@ data "aws_subnets" "tech_subnetes" {
 
 output subnets_output {
   # value = data.aws_subnets.tech_subnetes.ids
-  value = [for s in data.aws_subnets.tech_subnetes : s.ids]
+  values = [for s in data.aws_subnets.tech_subnetes : s.ids]
 }
 
 
