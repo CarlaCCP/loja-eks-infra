@@ -30,13 +30,13 @@ data "aws_subnets" "tech_subnetes" {
   # filter = "availability-zone!=us-east-1e"
   filter {
     name   = "availability-zone-id"
-    values = ["!=us-east-1e"]
+    values = ["use1-az5","use1-az2", "use1-az1", "use1-az6", "use1-az4"]
   }
 }
 
 output subnets_output {
   # value = data.aws_subnets.tech_subnetes.ids
-  value = [for id in data.aws_subnets.tech_subnetes : id.id]
+  value = [for s in data.aws_subnets.tech_subnetes : s.ids]
 }
 
 
