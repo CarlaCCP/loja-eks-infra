@@ -40,7 +40,12 @@ provider "aws" {
 # }
 
 data "aws_subnets" "tech_subnetes" {}
-data "aws_subnet" "tech_subnet" {}
+data "aws_subnet" "tech_subnet" {
+  filter = {
+    name   = "availability-zone"
+    values = ["us-east-1"]
+  }
+}
 
 output subnets_output {
   # value = data.aws_subnets.tech_subnetes.ids
