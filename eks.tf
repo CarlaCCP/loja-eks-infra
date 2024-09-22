@@ -1,31 +1,6 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "4.52.0"
-    }
-    random = {
-      source  = "hashicorp/random"
-      version = "3.4.3"
-    }
-  }
-  required_version = ">= 1.1.0"
-  #   cloud {
-  #   organization = "teste-carla"
-
-  #   workspaces {
-  #     name = "novo-workspace"
-  #   }
-  # }
-}
-
-provider "aws" {
-  region = "us-east-1"
-}
-
 data "aws_subnets" "tech_subnetes" {
   filter {
     name   = "availability-zone-id"
@@ -62,7 +37,7 @@ resource "aws_eks_node_group" "techNode" {
   node_group_name = "techNode"
   node_role_arn   = "arn:aws:iam::019248244455:role/LabRole"
   subnet_ids      = data.aws_subnets.tech_subnetes.ids
-  instance_types   = ["t3.small"] 
+  instance_types  = ["t3.small"] 
 
   scaling_config {
     desired_size = 1
