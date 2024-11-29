@@ -15,7 +15,7 @@ output subnets_output {
 
 resource "aws_eks_cluster" "tech" {
   name     = "tech"
-  role_arn = "arn:aws:iam::566328726436:role/LabRole"
+  role_arn = "arn:aws:iam::339712924021:role/LabRole"
 
   vpc_config {
     subnet_ids = data.aws_subnets.tech_subnetes.ids
@@ -35,7 +35,7 @@ output "kubeconfig-certificate-authority-data" {
 resource "aws_eks_node_group" "techNode" {
   cluster_name    = aws_eks_cluster.tech.name
   node_group_name = "techNode"
-  node_role_arn   = "arn:aws:iam::566328726436:role/LabRole"
+  node_role_arn   = "arn:aws:iam::339712924021:role/LabRole"
   subnet_ids      = data.aws_subnets.tech_subnetes.ids
   instance_types  = ["t3.small"] 
 
