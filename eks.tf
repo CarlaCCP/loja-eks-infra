@@ -15,7 +15,7 @@ output subnets_output {
 
 resource "aws_eks_cluster" "tech" {
   name     = "tech"
-  role_arn = "arn:aws:iam::566328726436:role/LabRole"
+  role_arn = "arn:aws:iam::339712924021:role/LabRole"
 
   vpc_config {
     subnet_ids = data.aws_subnets.tech_subnetes.ids
